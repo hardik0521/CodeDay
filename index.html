@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex min-h-screen flex-col">
+      <!-- Navbar -->
+      <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex shrink-0 items-center">
+                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="h-8 w-auto" />
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">FAQ</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Achievements</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">View notifications</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                  <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <!-- Profile dropdown -->
+              <el-dropdown class="relative ml-3">
+                <button class="relative flex rounded-full bg-gray-800 text-sm focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800">
+                  <span class="absolute -inset-1.5"></span>
+                  <span class="sr-only">Open user menu</span>
+
+                </button>
+
+                <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your Profile</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign out</a>
+                </el-menu>
+              </el-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
+          <div class="space-y-1 px-2 pt-2 pb-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+          </div>
+        </el-disclosure>
+      </nav>
+      <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex md:flex-col w-64 bg-gray-900 text-white p-4 space-y-4">
+          <div class="text-2xl font-bold mb-6">Menu</div>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700">Dashboard</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700">FAQ</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700">Achievements</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700">Calendar</a>
+        </aside>
+        <!-- Mobile Sidebar Toggle -->
+        <div class="md:hidden">
+          <button id="sidebar-toggle" class="m-2 p-2 bg-gray-800 text-white rounded focus:outline-none">☰</button>
+        </div>
+        <!-- Sidebar for mobile -->
+        <aside id="mobile-sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-4 space-y-4 z-40 transform -translate-x-full transition-transform duration-200 md:hidden">
+          <button id="sidebar-close" class="mb-4 p-2 bg-gray-800 rounded">✕</button>
+          <div class="text-2xl font-bold mb-6">Menu</div>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700 block">Dashboard</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700 block">FAQ</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700 block">Achievements</a>
+          <a href="#" class="py-2 px-3 rounded hover:bg-gray-700 block">Calendar</a>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-4">
+          <h2 class="md:text-5xl text-4xl font-bold text-center pt-12 mb-12">Frequently Asked Questions</h2>
+          <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(0)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">What does your business do?</h3>
+              <p class="text-lg text-black">
+                We provide high-quality digital marketing services to help businesses grow online.
+              </p>
+            </div>
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(1)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">How can I place an order or request a service?</h3>
+              <p class="text-lg text-black">
+                You can place an order directly through our website or contact our team via email, phone, or form to discuss your needs.
+              </p>
+            </div>
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(2)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">Do you offer refund or guarantee?</h3>
+              <p class="text-lg text-black">
+                Yes, we offer refund/return policies within 10 days of purchase. Certain conditions apply. Please refer to our refund policy for full details.
+              </p>
+            </div>
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(3)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">How long does it take to receive my order/service?</h3>
+              <p class="text-lg text-black ">
+                Delivery time varies depending on the product or service. Typically, you can expect 10 business days or a custom time frame.
+              </p>
+            </div>
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(4)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">Do you offer bulk pricing or business packages?</h3>
+              <p class="text-lg text-black">
+                Yes, we offer customised pricing for bulk orders or long-term partnerships. Please contact us for a custom quote.
+              </p>
+            </div>
+            <div class="py-6 px-8 bg-white-700 rounded-xl shadow-lg cursor-pointer" onclick="showModal(5)">
+              <h3 class="md:text-3xl text-2xl font-bold mb-4 text-blue-300">How can I contact customer support?</h3>
+              <p class="text-lg text-black">
+                You can reach our customer support team via the contact form on our website, by email, or by calling our support hotline. We are available to assist you.
+              </p>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="faq-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+              <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+              <h3 id="modal-question" class="text-2xl font-bold mb-4 text-blue-600"></h3>
+              <p id="modal-answer" class="text-lg text-gray-800"></p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer  id="contact" class="bg-white rounded-lg shadow-sm m-4 dark:bg-gray-800">
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a class="hover:underline">Hardik Mahajan</a>
+      </span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+              <a href="#" class="hover:underline me-4 md:me-6">About</a>
+          </li>
+          <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+          </li>
+          <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+          </li>
+          <li>
+              <a href="#" class="hover:underline">Contact</a>
+          </li>
+      </ul>
+      </div>
+    </footer>
+    <script>
+      // Sidebar toggle logic
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const mobileSidebar = document.getElementById('mobile-sidebar');
+      const sidebarClose = document.getElementById('sidebar-close');
+      if (sidebarToggle && mobileSidebar && sidebarClose) {
+        sidebarToggle.addEventListener('click', () => {
+          mobileSidebar.classList.remove('-translate-x-full');
+        });
+        sidebarClose.addEventListener('click', () => {
+          mobileSidebar.classList.add('-translate-x-full');
+        });
+      }
+
+      const faqData = [
+        {
+          question: "What does your business do?",
+          answer: "We provide high-quality digital marketing services to help businesses grow online."
+        },
+        {
+          question: "How can I place an order or request a service?",
+          answer: "You can place an order directly through our website or contact our team via email, phone, or form to discuss your needs."
+        },
+        {
+          question: "Do you offer refund or guarantee?",
+          answer: "Yes, we offer refund/return policies within 10 days of purchase. Certain conditions apply. Please refer to our refund policy for full details."
+        },
+        {
+          question: "How long does it take to receive my order/service?",
+          answer: "Delivery time varies depending on the product or service. Typically, you can expect 10 business days or a custom time frame."
+        },
+        {
+          question: "Do you offer bulk pricing or business packages?",
+          answer: "Yes, we offer customised pricing for bulk orders or long-term partnerships. Please contact us for a custom quote."
+        },
+        {
+          question: "How can I contact customer support?",
+          answer: "You can reach our customer support team via the contact form on our website, by email, or by calling our support hotline. We are available to assist you."
+        }
+      ];
+      function showModal(idx) {
+        document.getElementById('modal-question').textContent = faqData[idx].question;
+        document.getElementById('modal-answer').textContent = faqData[idx].answer;
+        document.getElementById('faq-modal').classList.remove('hidden');
+      }
+      function closeModal() {
+        document.getElementById('faq-modal').classList.add('hidden');
+      }
+    </script>
+  </body>
+</html>
